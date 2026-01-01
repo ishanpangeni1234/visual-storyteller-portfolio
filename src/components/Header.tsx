@@ -1,7 +1,11 @@
 import { useScrollAnimation, useParallax, useMousePosition } from '@/hooks/useScrollAnimation';
 import fcpIcon from '@/assets/final-cut-pro-icon.png';
 
-const Header = () => {
+interface HeaderProps {
+  onNavigate: (section: 'long' | 'short') => void;
+}
+
+const Header = ({ onNavigate }: HeaderProps) => {
   const { ref, isVisible } = useScrollAnimation();
   const scrollY = useParallax();
   const mouse = useMousePosition();
@@ -46,26 +50,43 @@ const Header = () => {
 
         <div className={`scroll-fade-up stagger-1 ${isVisible ? 'visible' : ''}`}>
           <span className="inline-block px-4 py-1.5 mb-6 text-xs tracking-[0.3em] uppercase text-muted-foreground glass-card rounded-full">
-            Final Cut Pro Editor
+            Final Cut Pro Editor • 5+ Years Experience
           </span>
         </div>
         
         <h1 
-          className={`heading-display text-5xl md:text-7xl lg:text-8xl mb-8 scroll-fade-up stagger-2 ${isVisible ? 'visible' : ''}`}
+          className={`heading-display text-5xl md:text-7xl lg:text-8xl mb-4 scroll-fade-up stagger-2 ${isVisible ? 'visible' : ''}`}
         >
-          <span className="gradient-text glow-text">Precision</span>
-          <br />
-          <span className="text-foreground">Editing</span>
+          <span className="text-foreground">Hi, I'm </span>
+          <span className="gradient-text glow-text">Ishan</span>
         </h1>
         
         <p 
-          className={`text-body text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto scroll-fade-up stagger-3 ${isVisible ? 'visible' : ''}`}
+          className={`text-body text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 scroll-fade-up stagger-3 ${isVisible ? 'visible' : ''}`}
         >
           Crafted with Final Cut Pro — where every frame tells a story and every cut is intentional.
         </p>
 
+        {/* Long Form / Short Form Navigation */}
+        <div className={`flex justify-center gap-4 scroll-fade-up stagger-4 ${isVisible ? 'visible' : ''}`}>
+          <button 
+            onClick={() => onNavigate('long')}
+            className="glass-card-hover magnetic-hover px-8 py-3 text-sm tracking-wider uppercase text-foreground/80 hover:text-foreground transition-all duration-300 flex items-center gap-2"
+          >
+            <span className="w-8 h-1 bg-accent rounded-full" />
+            Long Form
+          </button>
+          <button 
+            onClick={() => onNavigate('short')}
+            className="glass-card-hover magnetic-hover px-8 py-3 text-sm tracking-wider uppercase text-foreground/80 hover:text-foreground transition-all duration-300 flex items-center gap-2"
+          >
+            <span className="w-1 h-8 bg-accent rounded-full" />
+            Short Form
+          </button>
+        </div>
+
         {/* Scroll indicator */}
-        <div className={`mt-16 scroll-fade-up stagger-4 ${isVisible ? 'visible' : ''}`}>
+        <div className={`mt-16 scroll-fade-up stagger-5 ${isVisible ? 'visible' : ''}`}>
           <div className="w-6 h-10 mx-auto rounded-full border-2 border-muted-foreground/30 flex items-start justify-center p-1.5">
             <div className="w-1.5 h-2.5 bg-accent rounded-full animate-bounce" />
           </div>
