@@ -59,8 +59,8 @@ const Index = () => {
         activeCategory={activeCategory}
         onCategoryChange={setActiveCategory}
       />
-      <main key={activeCategory}>
-        <VideoGrid videos={filteredVideos} />
+      <main>
+        <VideoGrid key={activeCategory} videos={filteredVideos} />
       </main>
       <Footer />
     </div>
