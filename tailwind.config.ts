@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['Cormorant Garamond', 'serif'],
-        body: ['Inter', 'sans-serif'],
+        display: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        body: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -74,12 +74,21 @@ export default {
           from: { opacity: "0" },
           to: { opacity: "1" },
         },
+        shimmer: {
+          "100%": { transform: "translateX(100%)" },
+        },
+        bounce: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(6px)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-up": "fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards",
         "fade-in": "fade-in 0.5s ease-out forwards",
+        shimmer: "shimmer 2s infinite",
+        bounce: "bounce 1.5s ease-in-out infinite",
       },
     },
   },
