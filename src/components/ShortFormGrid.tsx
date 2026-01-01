@@ -1,19 +1,14 @@
 import { useState } from "react";
-import VideoCard from "./VideoCard";
+import ShortFormCard from "./ShortFormCard";
 import { ChevronDown, ChevronUp } from "lucide-react";
 
-interface Video {
-  id: string;
-  category: string;
-}
-
-interface VideoGridProps {
-  videos: Video[];
+interface ShortFormGridProps {
+  videos: string[];
 }
 
 const INITIAL_COUNT = 6;
 
-const VideoGrid = ({ videos }: VideoGridProps) => {
+const ShortFormGrid = ({ videos }: ShortFormGridProps) => {
   const [showAll, setShowAll] = useState(false);
   
   const visibleVideos = showAll ? videos : videos.slice(0, INITIAL_COUNT);
@@ -24,11 +19,11 @@ const VideoGrid = ({ videos }: VideoGridProps) => {
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-radial pointer-events-none" />
       
-      <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-        {visibleVideos.map((video, index) => (
-          <VideoCard 
-            key={video.id} 
-            driveId={video.id} 
+      <div className="relative grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
+        {visibleVideos.map((videoId, index) => (
+          <ShortFormCard 
+            key={videoId} 
+            driveId={videoId} 
             index={index}
           />
         ))}
@@ -54,4 +49,4 @@ const VideoGrid = ({ videos }: VideoGridProps) => {
   );
 };
 
-export default VideoGrid;
+export default ShortFormGrid;
