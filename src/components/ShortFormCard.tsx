@@ -16,11 +16,11 @@ const ShortFormCard = ({ driveId, index }: ShortFormCardProps) => {
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
-    
+
     const rect = cardRef.current.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width - 0.5;
     const y = (e.clientY - rect.top) / rect.height - 0.5;
-    
+
     cardRef.current.style.transform = `
       perspective(1000px) 
       rotateY(${x * 10}deg) 
@@ -47,7 +47,7 @@ const ShortFormCard = ({ driveId, index }: ShortFormCardProps) => {
         onMouseEnter={() => setIsHovered(true)}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        style={{ 
+        style={{
           transition: isHovered ? 'none' : 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
           transformStyle: 'preserve-3d'
         }}
@@ -58,16 +58,16 @@ const ShortFormCard = ({ driveId, index }: ShortFormCardProps) => {
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full animate-[shimmer_2s_infinite]" />
           </div>
         )}
-        
+
         {/* Glow effect on hover */}
-        <div 
+        <div
           className="absolute -inset-1 bg-gradient-to-r from-accent/20 via-transparent to-[hsl(200,100%,60%)]/20 rounded-2xl blur-xl opacity-0 transition-opacity duration-500 pointer-events-none"
           style={{ opacity: isHovered ? 0.6 : 0 }}
         />
-        
+
         <iframe
           src={embedUrl}
-          className={`w-full h-full transition-opacity duration-700 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+          className={`absolute top-0 left-1/2 -translate-x-1/2 w-[320%] h-full transition-opacity duration-700 border-0 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
           allow="autoplay; encrypted-media"
           allowFullScreen
           onLoad={() => setIsLoaded(true)}

@@ -6,24 +6,24 @@ interface ShortFormGridProps {
   videos: string[];
 }
 
-const INITIAL_COUNT = 6;
+const INITIAL_COUNT = 8;
 
 const ShortFormGrid = ({ videos }: ShortFormGridProps) => {
   const [showAll, setShowAll] = useState(false);
-  
+
   const visibleVideos = showAll ? videos : videos.slice(0, INITIAL_COUNT);
   const hasMore = videos.length > INITIAL_COUNT;
 
   return (
-    <div className="relative px-6 md:px-12 lg:px-24 pb-16">
+    <div className="relative px-6 md:px-12 lg:px-24 pb-16 max-w-5xl mx-auto">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-radial pointer-events-none" />
-      
-      <div className="relative grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
+
+      <div className="relative grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
         {visibleVideos.map((videoId, index) => (
-          <ShortFormCard 
-            key={videoId} 
-            driveId={videoId} 
+          <ShortFormCard
+            key={videoId}
+            driveId={videoId}
             index={index}
           />
         ))}

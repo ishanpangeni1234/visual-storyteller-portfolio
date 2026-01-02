@@ -13,26 +13,26 @@ const Header = ({ onNavigate }: HeaderProps) => {
   return (
     <header className="relative pt-24 md:pt-32 pb-16 md:pb-24 px-6 md:px-12 lg:px-24 overflow-hidden">
       {/* Animated background orbs */}
-      <div 
+      <div
         className="orb w-[500px] h-[500px] bg-accent -top-64 -left-32 pointer-events-none"
-        style={{ 
+        style={{
           transform: `translate(${mouse.x * 30}px, ${mouse.y * 30}px)`,
           transition: 'transform 0.3s ease-out'
         }}
       />
-      <div 
+      <div
         className="orb w-[400px] h-[400px] bg-[hsl(200,100%,60%)] -top-32 right-0 pointer-events-none"
-        style={{ 
+        style={{
           animationDelay: '-5s',
           transform: `translate(${mouse.x * -20}px, ${mouse.y * -20}px)`,
           transition: 'transform 0.3s ease-out'
         }}
       />
-      
+
       {/* Grid background */}
       <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" />
-      
-      <div 
+
+      <div
         ref={ref}
         className="relative max-w-5xl mx-auto text-center"
         style={{ transform: `translateY(${scrollY * 0.2}px)` }}
@@ -40,9 +40,9 @@ const Header = ({ onNavigate }: HeaderProps) => {
         {/* Final Cut Pro Icon */}
         <div className={`scroll-fade-up ${isVisible ? 'visible' : ''}`}>
           <div className="inline-block mb-6">
-            <img 
-              src={fcpIcon} 
-              alt="Final Cut Pro" 
+            <img
+              src={fcpIcon}
+              alt="Final Cut Pro"
               className="w-20 h-20 md:w-24 md:h-24 mx-auto drop-shadow-2xl hover:scale-110 transition-transform duration-300"
             />
           </div>
@@ -53,34 +53,32 @@ const Header = ({ onNavigate }: HeaderProps) => {
             Final Cut Pro Editor • 5+ Years Experience
           </span>
         </div>
-        
-        <h1 
+
+        <h1
           className={`heading-display text-5xl md:text-7xl lg:text-8xl mb-4 scroll-fade-up stagger-2 ${isVisible ? 'visible' : ''}`}
         >
           <span className="text-foreground">Hi, I'm </span>
           <span className="gradient-text glow-text">Ishan</span>
         </h1>
-        
-        <p 
+
+        <p
           className={`text-body text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 scroll-fade-up stagger-3 ${isVisible ? 'visible' : ''}`}
         >
-          Crafted with Final Cut Pro — where every frame tells a story and every cut is intentional.
+          Clean cuts. Strong pacing. No wasted frames.
         </p>
 
         {/* Long Form / Short Form Navigation */}
         <div className={`flex justify-center gap-4 scroll-fade-up stagger-4 ${isVisible ? 'visible' : ''}`}>
-          <button 
+          <button
             onClick={() => onNavigate('long')}
             className="glass-card-hover magnetic-hover px-8 py-3 text-sm tracking-wider uppercase text-foreground/80 hover:text-foreground transition-all duration-300 flex items-center gap-2"
           >
-            <span className="w-8 h-1 bg-accent rounded-full" />
             Long Form
           </button>
-          <button 
+          <button
             onClick={() => onNavigate('short')}
             className="glass-card-hover magnetic-hover px-8 py-3 text-sm tracking-wider uppercase text-foreground/80 hover:text-foreground transition-all duration-300 flex items-center gap-2"
           >
-            <span className="w-1 h-8 bg-accent rounded-full" />
             Short Form
           </button>
         </div>

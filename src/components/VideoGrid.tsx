@@ -15,7 +15,7 @@ const INITIAL_COUNT = 6;
 
 const VideoGrid = ({ videos }: VideoGridProps) => {
   const [showAll, setShowAll] = useState(false);
-  
+
   const visibleVideos = showAll ? videos : videos.slice(0, INITIAL_COUNT);
   const hasMore = videos.length > INITIAL_COUNT;
 
@@ -23,12 +23,12 @@ const VideoGrid = ({ videos }: VideoGridProps) => {
     <div className="relative px-6 md:px-12 lg:px-24 pb-16">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-radial pointer-events-none" />
-      
-      <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+
+      <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
         {visibleVideos.map((video, index) => (
-          <VideoCard 
-            key={video.id} 
-            driveId={video.id} 
+          <VideoCard
+            key={video.id}
+            driveId={video.id}
             index={index}
           />
         ))}
