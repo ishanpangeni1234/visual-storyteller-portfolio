@@ -58,7 +58,7 @@ const Header = ({ onNavigate }: HeaderProps) => {
           className={`heading-display text-5xl md:text-7xl lg:text-8xl mb-4 scroll-fade-up stagger-2 ${isVisible ? 'visible' : ''}`}
         >
           <span className="text-foreground">Hi, I'm </span>
-          <span className="gradient-text glow-text">Ishan</span>
+          <span className="gradient-text glow-text">Usha</span>
         </h1>
 
         <p
